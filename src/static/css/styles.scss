@@ -1,0 +1,137 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+@mixin flex-pad {
+  flex-basis: 50%;
+  padding: 10px;
+}
+
+//########################## HEADER ##########################
+.header {
+  height: 100vh;
+  width: 100%;
+  .header-text {
+    color: white;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    text-shadow: 0px 0px 3px black;
+    transform: translate(-50%, -50%);
+    h1 {
+      text-align: center;
+    }
+  }
+}
+
+//########################## NAVBAR ##########################
+ul {
+  display: flex;
+  margin: 0 auto;
+  }
+  .dropDownIcon {
+    display: none;
+  }
+  li {
+    color: white;
+    font-size: 2em;
+    list-style: none;
+    padding: 0 20px;
+    text-shadow: 0px 0px 3px black;
+    &:hover {
+      cursor: pointer;
+    }
+    @media only screen and (max-width: 800px) {
+      display: none;
+  }
+}
+
+.responsive {
+  position: fixed;
+  width: 100%;
+  z-index: 99999;
+  ul {
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0;
+    z-index: 9999;
+    li {
+      display: flex;
+      padding-top: 10px;
+    }
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  ul {
+    position: relative;
+  }
+  .dropDownIcon {
+    color: red;
+    display: block;
+    right: 0;
+    position: fixed;
+  }
+}
+
+//########################## ABOUT ##########################
+.about-container {
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 40px;
+  @media only screen and (max-width: 800px) {
+    flex-direction: column;
+  }
+  .about-text {
+    @include flex-pad;
+    h1 {
+      text-align: center;
+    }
+    p {
+      line-height: 40px;
+    }
+  }
+  .about-image {
+    @include flex-pad;
+    min-height: 300px;
+    width: 100%;
+  }
+}
+
+//########################## CONTACT ##########################
+.contact {
+  margin-top: 40px;
+  .overlay {
+    background-color: rgba(0,0,0,0.5);
+    padding-top: 40px;
+  }
+  h1 {
+    color: white;
+    text-align: center;
+    text-shadow: 0px 0px 3px black;
+  }
+  .contact-container {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 40px 0;
+    @media only screen and (max-width: 800px) {
+      flex-direction: column;
+    }
+    .contact-info {
+      flex-basis: 50%;
+      h1, p {
+        color: white;
+        text-align: center;
+        text-shadow: 0px 0px 3px black;
+      }
+    }
+    .contact-location {
+      flex-basis: 50%;
+      @media only screen and (max-width: 800px) {
+        padding-top: 40px;
+      }
+    }
+  }
+}
